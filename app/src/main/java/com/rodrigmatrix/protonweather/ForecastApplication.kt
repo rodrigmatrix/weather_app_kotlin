@@ -7,6 +7,8 @@ import com.rodrigmatrix.protonweather.data.network.ConnectivityInterceptor
 import com.rodrigmatrix.protonweather.data.network.ConnectivityInterceptorImpl
 import com.rodrigmatrix.protonweather.data.network.WeatherNetworkDataSource
 import com.rodrigmatrix.protonweather.data.network.WeatherNetworkDataSourceImpl
+import com.rodrigmatrix.protonweather.data.provider.UnitProvider
+import com.rodrigmatrix.protonweather.data.provider.UnitProviderImpl
 import com.rodrigmatrix.protonweather.data.repository.ForecastRepository
 import com.rodrigmatrix.protonweather.data.repository.ForecastRepositoryImpl
 import com.rodrigmatrix.protonweather.persistence.ForecastDatabase
@@ -28,7 +30,8 @@ class ForecastApplication: Application(), KodeinAware {
         bind() from singleton { ApixuWeatherApi(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
         bind<ForecastRepository>() with  singleton { ForecastRepositoryImpl(instance(), instance()) }
-        bind() from provider { CurrentWeatherViewModelFactory(instance()) }
+        bind<UnitProvider>() with singleton { UnitProviderImpl(instance()) }
+        bind() from provider { CurrentWeatherViewModelFactory(instance(), instance()) }
     }
 
     override fun onCreate() {
