@@ -28,7 +28,6 @@ class FutureDetailFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(FutureDetailViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
 }
