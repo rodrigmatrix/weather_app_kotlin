@@ -31,7 +31,7 @@ class ForecastRepositoryImpl(
 
     private suspend fun fetchCurrentWeather(){
         weatherNetworkDataSource.fetchCurrentWeather(
-            "Anchorage",
+            "Caxias do Sul",
             Locale.getDefault().language
         )
     }
@@ -43,6 +43,7 @@ class ForecastRepositoryImpl(
 
     override suspend fun getCurrentWeather(metric: Boolean): LiveData<out UnitSpecificCurrentWeatherEntry> {
         return withContext(Dispatchers.IO){
+            initWeatherData()
             return@withContext if(metric) currentWeatherDao.getWeatherMetric()
             else currentWeatherDao.getWeatherImperial()
         }

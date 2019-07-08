@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/today_fragment"
-        android:name="com.rodrigmatrix.protonweather.ui.weather.CurrentWeatherFragment"
+        android:name="com.rodrigmatrix.protonweather.ui.weather.current.CurrentWeatherFragment"
         android:label="Today"
         tools:layout="@layout/current_weather_fragment" />
     <fragment
