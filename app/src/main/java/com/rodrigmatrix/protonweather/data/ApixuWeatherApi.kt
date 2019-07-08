@@ -1,6 +1,7 @@
 package com.rodrigmatrix.protonweather.data
 
 import com.rodrigmatrix.proton.CurrentWeatherResponse
+import com.rodrigmatrix.protonweather.data.network.ConnectivityInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -19,7 +20,9 @@ interface ApixuWeatherApi {
     ): CurrentWeatherResponse
 
     companion object {
-        operator fun invoke(): ApixuWeatherApi {
+        operator fun invoke(
+            connectivityInterceptor: ConnectivityInterceptor
+        ): ApixuWeatherApi {
             val requestInterceptor = Interceptor { chain ->
                 val url = chain.request()
                     .url()
@@ -34,6 +37,7 @@ interface ApixuWeatherApi {
             }
             val okHttpClient = OkHttpClient.Builder()
                 .addInterceptor(requestInterceptor)
+                .addInterceptor(connectivityInterceptor)
                 .build()
 
             return Retrofit.Builder()

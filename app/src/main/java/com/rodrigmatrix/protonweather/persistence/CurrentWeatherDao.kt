@@ -1,6 +1,7 @@
 package com.rodrigmatrix.protonweather.persistence
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -9,6 +10,7 @@ import com.rodrigmatrix.protonweather.persistence.entity.Current
 import com.rodrigmatrix.protonweather.persistence.unlocalized.ImperialCurrentWeatherEntry
 import com.rodrigmatrix.protonweather.persistence.unlocalized.MetricCurrentWeatherEntry
 
+@Dao
 interface CurrentWeatherDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun upsert(weatherEntry: Current)
