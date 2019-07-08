@@ -1,4 +1,4 @@
-package com.rodrigmatrix.protonweather.data.response
+package com.rodrigmatrix.protonweather.persistence.entity
 
 
 import com.google.gson.annotations.SerializedName

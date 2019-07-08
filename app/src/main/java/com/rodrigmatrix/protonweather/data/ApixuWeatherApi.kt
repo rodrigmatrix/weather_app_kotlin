@@ -1,13 +1,8 @@
 package com.rodrigmatrix.protonweather.data
 
-import com.google.gson.GsonBuilder
 import com.rodrigmatrix.proton.CurrentWeatherResponse
-import com.rodrigmatrix.protonweather.data.response.Current
-import kotlinx.coroutines.Deferred
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import retrofit2.Call
-import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
