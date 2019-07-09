@@ -3,8 +3,8 @@ package com.rodrigmatrix.protonweather.data.network
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.rodrigmatrix.proton.CurrentWeatherResponse
 import com.rodrigmatrix.protonweather.data.ApixuWeatherApi
+import com.rodrigmatrix.protonweather.data.network.response.CurrentWeatherResponse
 import com.rodrigmatrix.protonweather.internal.NoConnectivityException
 
 class WeatherNetworkDataSourceImpl(

@@ -1,7 +1,7 @@
 package com.rodrigmatrix.protonweather.data
 
-import com.rodrigmatrix.proton.CurrentWeatherResponse
 import com.rodrigmatrix.protonweather.data.network.ConnectivityInterceptor
+import com.rodrigmatrix.protonweather.data.network.response.CurrentWeatherResponse
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

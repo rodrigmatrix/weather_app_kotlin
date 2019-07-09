@@ -1,10 +1,10 @@
-package com.rodrigmatrix.proton
+package com.rodrigmatrix.protonweather.data.network.response
 
 import com.rodrigmatrix.protonweather.persistence.entity.Current
-import com.rodrigmatrix.protonweather.persistence.entity.Location
+import com.rodrigmatrix.protonweather.persistence.entity.WeatherLocation
 
 
 data class CurrentWeatherResponse(
     val current: Current,
-    val location: Location
+    val location: WeatherLocation
 )

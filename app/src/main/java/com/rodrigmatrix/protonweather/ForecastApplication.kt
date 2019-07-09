@@ -8,6 +8,8 @@ import com.rodrigmatrix.protonweather.data.network.ConnectivityInterceptor
 import com.rodrigmatrix.protonweather.data.network.ConnectivityInterceptorImpl
 import com.rodrigmatrix.protonweather.data.network.WeatherNetworkDataSource
 import com.rodrigmatrix.protonweather.data.network.WeatherNetworkDataSourceImpl
+import com.rodrigmatrix.protonweather.data.provider.LocationProvider
+import com.rodrigmatrix.protonweather.data.provider.LocationProviderImpl
 import com.rodrigmatrix.protonweather.data.provider.UnitProvider
 import com.rodrigmatrix.protonweather.data.provider.UnitProviderImpl
 import com.rodrigmatrix.protonweather.data.repository.ForecastRepository
@@ -27,10 +29,12 @@ class ForecastApplication: Application(), KodeinAware {
         import(androidXModule(this@ForecastApplication))
         bind() from singleton { ForecastDatabase(instance()) }
         bind() from singleton { instance<ForecastDatabase>().currentWeatherDao() }
+        bind() from singleton { instance<ForecastDatabase>().weatherLocationDao() }
         bind<ConnectivityInterceptor>() with singleton { ConnectivityInterceptorImpl(instance()) }
         bind() from singleton { ApixuWeatherApi(instance()) }
         bind<WeatherNetworkDataSource>() with singleton { WeatherNetworkDataSourceImpl(instance()) }
-        bind<ForecastRepository>() with  singleton { ForecastRepositoryImpl(instance(), instance()) }
+        bind<LocationProvider>() with singleton { LocationProviderImpl() }
+        bind<ForecastRepository>() with  singleton { ForecastRepositoryImpl(instance(), instance(), instance(), instance()) }
         bind<UnitProvider>() with singleton { UnitProviderImpl(instance()) }
         bind() from provider { CurrentWeatherViewModelFactory(instance(), instance()) }
     }

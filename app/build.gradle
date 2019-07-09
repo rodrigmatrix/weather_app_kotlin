@@ -82,7 +82,7 @@ dependencies {
     implementation 'com.xwray:groupie:2.3.0'
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.3.0'
 
-    // Location
+    // WeatherLocation
     implementation "com.google.android.gms:play-services-location:17.0.0"
 
     // Material Components
