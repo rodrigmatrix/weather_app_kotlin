@@ -27,7 +27,6 @@ android {
 
 dependencies {
     def room_version = '2.1.0'
-
     def nav_version_ktx = '2.1.0-alpha06'
     def lifecycle_version = '2.2.0-alpha02'
     def retrofit_version = '2.6.0'
@@ -58,8 +57,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
     kapt "androidx.room:room-compiler:$room_version"
 
-    implementation "org.kodein.di:kodein-di-generic-jvm:5.2.0"
-    implementation "org.kodein.di:kodein-di-framework-android-x:5.2.0"
+    implementation "org.kodein.di:kodein-di-generic-jvm:6.3.3"
+    implementation "org.kodein.di:kodein-di-framework-android-x:6.3.3"
 
     implementation "com.jakewharton.threetenabp:threetenabp:1.1.0"
 

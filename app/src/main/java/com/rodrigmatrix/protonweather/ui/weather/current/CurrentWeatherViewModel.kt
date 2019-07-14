@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.rodrigmatrix.protonweather.data.provider.UnitProvider
 import com.rodrigmatrix.protonweather.data.repository.ForecastRepository
 import com.rodrigmatrix.protonweather.internal.UnitSystem
-import com.rodrigmatrix.protonweather.internal.lazyDefered
+import com.rodrigmatrix.protonweather.internal.lazyDeferred
 
 class CurrentWeatherViewModel(
     private val forecastRepository: ForecastRepository,
@@ -13,11 +13,11 @@ class CurrentWeatherViewModel(
     private val unitSystem = unitProvider.getUnitSystem()
     val isMetric: Boolean
         get() = unitSystem == UnitSystem.METRIC
-    val weather by lazyDefered {
+    val weather by lazyDeferred {
         forecastRepository.getCurrentWeather(isMetric)
     }
 
-    val weatherLocation by lazyDefered {
+    val weatherLocation by lazyDeferred {
         forecastRepository.getWeatherLocation()
     }
 }
