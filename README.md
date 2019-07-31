@@ -1,2 +1,2 @@
-# weather_app_tutorial
+# weather_app_kotlin
 Weather app with Android Jetpack
